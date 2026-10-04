@@ -1,0 +1,209 @@
+/* ==========================================================
+   SHARED STYLESHEET - used by every page.
+   Edit colours in the :root block below to re-theme the site.
+   ========================================================== */
+:root{
+  --lotus-pink:#E8789A; --leaf-green:#4F8A5B; --pond-teal:#1F5D63;
+  --cream:#FFF6E9; --turtle-brown:#8A5A3C; --soft-gold:#F2B84B;
+  --text:#2c2a26; --radius:20px; --shadow:0 8px 24px rgba(31,93,99,.14);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Poppins',sans-serif;background:var(--cream);color:var(--text);line-height:1.7}
+/* Language pages switch the body font */
+html[lang="hi"] body{font-family:'Noto Sans Devanagari','Poppins',sans-serif}
+html[lang="bn"] body,html[lang="as"] body{font-family:'Noto Sans Bengali','Poppins',sans-serif}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:'Baloo 2',sans-serif;color:var(--leaf-green);line-height:1.2;margin:0 0 .6rem}
+h2{font-size:clamp(1.7rem,4vw,2.4rem)}
+h3{font-size:1.3rem}
+/* Anchor links stop below the sticky navbar */
+[id]{scroll-margin-top:4.5rem}
+a{color:var(--pond-teal)}
+:focus-visible{outline:3px solid var(--soft-gold);outline-offset:3px}
+.container{width:min(1100px,92%);margin-inline:auto}
+section{padding:3.5rem 0}
+.center{text-align:center}
+
+/* ---------- Navbar ---------- */
+.site-header{position:sticky;top:0;z-index:50;background:var(--pond-teal);box-shadow:0 2px 12px rgba(0,0,0,.25)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:.5rem 0;gap:1rem;min-height:3.6rem}
+.brand{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1.15rem;line-height:1.25;color:#fff;text-decoration:none}
+.nav-links{display:flex;gap:.4rem;list-style:none;margin:0;padding:0}
+.nav-links a{color:#fff;text-decoration:none;padding:.4rem .9rem;border-radius:999px;display:block}
+.nav-links a:hover{background:rgba(255,255,255,.15)}
+.nav-links a[aria-current="page"]{background:var(--soft-gold);color:#1b1b1b;font-weight:600}
+.nav-toggle{display:none;background:none;border:2px solid #fff;color:#fff;font-size:1.4rem;border-radius:10px;padding:.1rem .6rem;cursor:pointer}
+@media(max-width:720px){
+  .brand{font-size:.95rem}
+  .nav-toggle{display:block}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--pond-teal);flex-direction:column;padding:.6rem 4%}
+  .nav-links.open{display:flex}
+}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-block;background:#C2406A;color:#fff;text-decoration:none;border:0;font:600 1rem 'Poppins',sans-serif;padding:.8rem 1.6rem;border-radius:999px;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 14px rgba(194,64,106,.35)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(194,64,106,.4)}
+.btn.alt{background:transparent;border:2px solid #fff;box-shadow:none}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:88vh;display:grid;place-items:center;text-align:center;color:#fff;overflow:hidden;padding:4rem 0}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::before{content:"";position:absolute;inset:0;background:rgba(18,63,68,.72);z-index:1}
+.hero .container{position:relative;z-index:2;max-width:760px}
+.hero h1{color:#fff;font-size:clamp(2.3rem,7vw,4.2rem);text-shadow:0 0 28px rgba(242,184,75,.55)}
+.hero p{font-size:1.15rem}
+.btn-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem}
+.float{position:absolute;z-index:2;font-size:2.2rem;animation:bob 6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-18px) rotate(8deg)}}
+
+/* ---------- Layout helpers ---------- */
+.two-col{display:grid;gap:2rem;align-items:center}
+.grid{display:grid;gap:1.4rem}
+@media(min-width:760px){.two-col{grid-template-columns:1fr 1fr}.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.g4{grid-template-columns:repeat(4,1fr)}}
+.card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:1.5rem}
+.card img{border-radius:14px;width:100%;aspect-ratio:4/3;object-fit:cover}
+.round-img{border-radius:var(--radius);box-shadow:0 0 0 6px var(--soft-gold),var(--shadow);width:100%}
+.icon{font-size:2rem}
+.stitch{border:0;border-top:4px dashed var(--lotus-pink);width:min(1100px,92%);margin:0 auto;opacity:.6}
+
+/* ---------- Quote & facts ---------- */
+.quote{background:var(--pond-teal);color:#fff;border-radius:var(--radius);padding:2.5rem 1.5rem;font-family:'Baloo 2',sans-serif;font-size:clamp(1.3rem,3.5vw,2rem);box-shadow:0 0 30px rgba(242,184,75,.45);margin:0}
+.fact{text-align:center;border-top:6px solid var(--soft-gold)}
+.fact .num{font-family:'Baloo 2',sans-serif;font-size:3rem;font-weight:800;color:var(--lotus-pink);line-height:1.1}
+.fact p{margin:.3rem 0 0}
+.list{padding-left:1.2rem;margin:0}
+
+/* ---------- Gallery & lightbox ---------- */
+.gallery{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.gallery a{display:block;overflow:hidden;border-radius:16px;box-shadow:var(--shadow)}
+.gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .4s}
+.gallery a:hover img,.gallery a:focus-visible img{transform:scale(1.1)}
+.lightbox{position:fixed;inset:0;background:rgba(10,40,44,.92);display:none;place-items:center;z-index:100;padding:1rem}
+.lightbox.open{display:grid}
+.lightbox img{max-height:85vh;border-radius:12px}
+.lightbox button{position:absolute;top:1rem;right:1rem;font-size:1.6rem;background:var(--soft-gold);border:0;border-radius:50%;width:2.8rem;height:2.8rem;cursor:pointer}
+
+/* ---------- Contact ---------- */
+.info dt{font-weight:600;color:var(--turtle-brown);margin-top:.6rem}
+.info dd{margin:0}
+form label{display:block;font-weight:600;margin:.8rem 0 .2rem}
+form input,form textarea{width:100%;padding:.7rem;border:2px solid #d8c7ad;border-radius:12px;font:inherit}
+.hidden{display:none}
+.success{background:#e3f3e6;border-left:6px solid var(--leaf-green);padding:.8rem 1rem;border-radius:10px;margin-bottom:1rem}
+
+/* ---------- Footer ---------- */
+.site-footer{background:var(--pond-teal);color:#fff;text-align:center;padding:2.5rem 0}
+.site-footer a{color:var(--soft-gold)}
+.site-footer ul{list-style:none;display:flex;gap:1.2rem;justify-content:center;padding:0;flex-wrap:wrap}
+.site-footer p{margin:.2rem 0}
+
+/* ---------- Scroll reveal (JS adds .in) ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .float{animation:none}
+  *{transition-duration:.01ms!important}
+}
+
+/* ==========================================================
+   DOCUMENTATION PAGE ADDITIONS (flow, icon grid, timeline,
+   accordion, profiles). Everything else is shared above.
+   ========================================================== */
+.hero.small{min-height:42vh}
+.hero.small h1{font-size:clamp(2rem,5.5vw,3.2rem)}
+.lead{max-width:760px;margin:0 auto 1.5rem;text-align:center}
+
+/* Flow diagram: A + B + C + D = result */
+.flow{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;justify-content:center}
+.flow-box{background:#fff;border:3px solid var(--lotus-pink);border-radius:var(--radius);padding:.8rem 1.2rem;font-weight:600;text-align:center;box-shadow:var(--shadow)}
+.flow-op{font-family:'Baloo 2',sans-serif;font-size:2rem;font-weight:700;color:var(--turtle-brown)}
+.flow-result{background:var(--pond-teal);color:#fff;border-color:var(--soft-gold);box-shadow:0 0 22px rgba(242,184,75,.6)}
+
+/* Materials icon grid */
+.icon-grid{list-style:none;margin:0;padding:0;display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.icon-grid li{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:1rem;text-align:center;font-weight:600}
+.icon-grid .icon{display:block;margin-bottom:.3rem}
+
+/* Vertical timeline with a stitched (dashed) thread */
+.timeline{list-style:none;margin:0;padding:0;position:relative}
+.timeline::before{content:"";position:absolute;left:20px;top:0;bottom:0;border-left:4px dashed var(--lotus-pink)}
+.step{position:relative;padding-left:56px;margin-bottom:2rem}
+.step::before{content:"";position:absolute;left:10px;top:1.4rem;width:24px;height:24px;border-radius:50%;background:var(--soft-gold);border:4px solid var(--cream);box-shadow:0 0 12px var(--soft-gold)}
+.step-head{display:flex;align-items:center;gap:.8rem;margin-bottom:.4rem}
+.step-head h3{margin:0}
+.step-num{flex:none;display:grid;place-items:center;width:2.4rem;height:2.4rem;border-radius:50%;background:#C2406A;color:#fff;font:700 1.1rem 'Baloo 2',sans-serif}
+.step .card img{margin-top:.8rem}
+@media(min-width:800px){
+  .timeline::before{left:50%;margin-left:-2px}
+  .step{width:50%;padding:0 3rem 0 0}
+  .step:nth-child(even){margin-left:50%;padding:0 0 0 3rem}
+  .step::before{left:auto;right:-12px}
+  .step:nth-child(even)::before{right:auto;left:-12px}
+}
+
+/* Accordion (native <details>, keyboard friendly) */
+.acc{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:.8rem;overflow:hidden}
+.acc summary{cursor:pointer;padding:1rem 1.3rem;font:700 1.15rem 'Baloo 2',sans-serif;color:var(--pond-teal);list-style:none;display:flex;justify-content:space-between;gap:1rem}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";font-size:1.5rem;color:var(--lotus-pink);line-height:1}
+.acc[open] summary::after{content:"\2212"}
+.acc[open]{border-left:6px solid var(--soft-gold)}
+.acc p{margin:0;padding:0 1.3rem 1.2rem}
+
+/* Team: captions, profiles, avatars */
+.gallery figcaption{text-align:center;font-size:.9rem;margin-top:.4rem}
+.card.profile{text-align:center}
+.card.profile img{width:160px;aspect-ratio:1;border-radius:50%;object-fit:cover;margin:0 auto 1rem;box-shadow:0 0 0 5px var(--soft-gold)}
+.role{color:var(--turtle-brown);font-weight:600;margin:0 0 .4rem}
+.avatars{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;margin-top:1rem}
+.avatar{text-align:center;font-size:.9rem}
+.avatar span{display:grid;place-items:center;width:72px;height:72px;margin:0 auto .3rem;border-radius:50%;background:var(--soft-gold);font-size:2rem}
+.thanks{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);border-top:6px solid var(--lotus-pink);padding:1.8rem;max-width:760px;margin:0 auto;text-align:center}
+
+/* ==========================================================
+   LANGUAGES PAGE ADDITIONS
+   ========================================================== */
+/* Lets any element switch font with a lang="" attribute */
+[lang="hi"]{font-family:'Noto Sans Devanagari','Poppins',sans-serif}
+[lang="bn"],[lang="as"]{font-family:'Noto Sans Bengali','Poppins',sans-serif}
+.hero-sub p{margin:.2rem 0;font-size:1.05rem}
+.lang-card{position:relative;text-align:center;padding:2.2rem 1.5rem;border-top:6px solid var(--lotus-pink);transition:transform .25s,box-shadow .25s}
+.lang-card:hover,.lang-card:focus-within{transform:translateY(-10px);box-shadow:0 14px 32px rgba(31,93,99,.25),0 0 22px rgba(242,184,75,.5)}
+.lang-card .deco{position:absolute;top:.8rem;right:1rem;font-size:1.6rem;opacity:.8}
+.lang-card h2{font-size:clamp(2rem,5vw,2.8rem);margin:.4rem 0 0}
+.lang-card .sub{color:var(--turtle-brown);font-weight:600;margin:0 0 1.2rem}
+
+/* ==========================================================
+   LANGUAGE SWITCHER (used on the /lang/ pages)
+   Fixed in the top-right corner, just under the navbar.
+   ========================================================== */
+.lang-switch{position:fixed;top:4rem;right:.8rem;z-index:40;display:flex;gap:.2rem;background:#fff;border-radius:999px;padding:.25rem;box-shadow:var(--shadow);border:2px solid var(--soft-gold)}
+.lang-switch a{text-decoration:none;color:var(--pond-teal);font-weight:600;font-size:.85rem;padding:.25rem .7rem;border-radius:999px}
+.lang-switch a:hover{background:var(--cream)}
+.lang-switch a[aria-current="true"]{background:var(--pond-teal);color:#fff}
+
+/* ==========================================================
+   HINDI PAGE: Noto Sans Devanagari everywhere, roomier lines
+   ========================================================== */
+html[lang="hi"] body{line-height:1.8}
+html[lang="hi"] h1,html[lang="hi"] h2,html[lang="hi"] h3,html[lang="hi"] .brand,html[lang="hi"] .btn,
+html[lang="hi"] .quote,html[lang="hi"] .fact .num,html[lang="hi"] .step-num,html[lang="hi"] form,
+html[lang="hi"] .lang-switch a[lang="hi"]{font-family:'Noto Sans Devanagari','Poppins',sans-serif}
+
+/* ==========================================================
+   BENGALI PAGE: Noto Sans Bengali everywhere, roomier lines
+   ========================================================== */
+html[lang="bn"] body{line-height:1.8}
+html[lang="bn"] h1,html[lang="bn"] h2,html[lang="bn"] h3,html[lang="bn"] .brand,html[lang="bn"] .btn,
+html[lang="bn"] .quote,html[lang="bn"] .fact .num,html[lang="bn"] .step-num,html[lang="bn"] form{font-family:'Noto Sans Bengali','Poppins',sans-serif}
+
+/* ==========================================================
+   ASSAMESE PAGE: Noto Sans Bengali (covers the Assamese script)
+   ========================================================== */
+html[lang="as"] body{line-height:1.8}
+html[lang="as"] h1,html[lang="as"] h2,html[lang="as"] h3,html[lang="as"] .brand,html[lang="as"] .btn,
+html[lang="as"] .quote,html[lang="as"] .fact .num,html[lang="as"] .step-num,html[lang="as"] form{font-family:'Noto Sans Bengali','Poppins',sans-serif}
